@@ -149,7 +149,8 @@ function M.expand(buf, from, to, line)
 end
 
 function M.get_expand_root(node, opts)
-  opts = opts or {}
+  -- todo: hardcoding exit on first match. move to config
+  opts = opts or { first = true }
   local root
   while node do
     if config.expand[node:type()] then
