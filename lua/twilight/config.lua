@@ -30,6 +30,8 @@ M.expand = {}
 
 function M.setup(options)
   M.options = vim.tbl_deep_extend("force", {}, defaults, options or {})
+  -- make sure expand values are reset
+  M.expand = {}
   for _, value in pairs(M.options.expand) do
     M.expand[value] = true
   end
