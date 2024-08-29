@@ -204,21 +204,21 @@ function M.get_context(buf, line)
   local from = line - math.floor(config.options.context / 2)
   local to = line + math.floor(config.options.context / 2)
 
-  local lcount = vim.api.nvim_buf_line_count(buf)
-
-  if to > lcount then
-    to = lcount
-  end
-  if from < 1 then
-    from = 1
-  end
-  while from > 0 and not M.is_empty(buf, from) do
-    from = from - 1
-  end
-
-  while to < lcount and not M.is_empty(buf, to) do
-    to = to + 1
-  end
+  -- local lcount = vim.api.nvim_buf_line_count(buf)
+  --
+  -- if to > lcount then
+  --   to = lcount
+  -- end
+  -- if from < 1 then
+  --   from = 1
+  -- end
+  -- while from > 0 and not M.is_empty(buf, from) do
+  --   from = from - 1
+  -- end
+  --
+  -- while to < lcount and not M.is_empty(buf, to) do
+  --   to = to + 1
+  -- end
 
   return from + 1, to + 2
 end
